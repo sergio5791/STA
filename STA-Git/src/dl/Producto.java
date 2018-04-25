@@ -22,7 +22,6 @@ public class Producto implements Serializable{
 	private String categoria;
 	private String precio;
 	private String descripcion;
-
 	private String identificador;
 	
 	@XmlElement
