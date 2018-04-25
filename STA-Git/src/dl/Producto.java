@@ -11,12 +11,7 @@ import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
-@NamedQuery(
-		name="pideProductos",
-		query="SELECT p FROM Producto p"
-	)
 
-@Entity
 @XmlRootElement
 public class Producto implements Serializable{
 
@@ -24,14 +19,10 @@ public class Producto implements Serializable{
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	@NotNull
 	private String categoria;
-	@NotNull
 	private String precio;
-	@NotNull
 	private String descripcion;
-	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
+
 	private String identificador;
 	
 	@XmlElement
