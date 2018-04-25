@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<link rel="stylesheet" href="Estilo.css">
+<meta charset="UTF-8">
+<title>Admin</title>
+</head>
+<body>
+
+<script >
+
+function check(){
+
+	var r=false;
+	var auxDesc=1;
+	var auxPrecio=1;
+	var descripcion=document.getElementById("descripcion").value;
+	var precio=document.getElementById("precio").value;
+
+	if(descripcion==""){
+	                alert("No has introducido la descripcion");
+	                var aux=document.getElementById("descripcion").style.backgroundColor="yellow";
+	                auxDesc=0;
+	                  }
+
+	if(precio=="" || isNaN(precio)){
+	                 alert("No has introducido el precio");
+	                 var aux1=document.getElementById("precio").style.backgroundColor="yellow";
+	                auxPrecio=0;
+	                }
+	if(auxDesc==1 && auxPrecio==1){
+	        alert("Los datos son correctos");
+	        r=true;
+	}
+	return r;
+}
+
+function reseteo(){
+	var aux=document.getElementById("descripcion").style.backgroundColor="white";
+	var aux1=document.getElementById("precio").style.backgroundColor="white";
+	document.getElementById("descripcion").value="";
+	document.getElementById("precio").value="";
+}
+</script>
+
+</head>
+<body>
+<h1>Bienvenido pagina del Admin</h1>
+
+<form action="http://localhost:8080/MyServlet/ServletAdmin" onsubmit="return check();" method="post">
+
+Tipo de producto:<br>
+
+<select name="categoria" id="categoria" >
+	<option value="Automovil">Automovil</option>
+	<option value="Electronica">Electronica</option>
+	<option value="Deportes">Deportes</option>
+</select><br>
+
+Descripcion:<br>
+<input type="text" name="descripcion" id="descripcion"><br>
+
+Precio:<br>
+<input type="text" name="precio" id="precio"><br>
+
+<input type="submit" value="Submit">
+<button type="button" onclick="reseteo()">Reset</button>
+
+</form>
+
+</body>
+<body>
+</body>
+</html>

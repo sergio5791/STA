@@ -1,0 +1,55 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html">
+
+<ui:composition template="WEB-INF/templates.xhtml">
+	<ui:define name="TituloDocumento">Pagina admin</ui:define>
+
+	<ui:define name="Contenido">
+		<h1>Bienvenido a la pagina del administrador</h1>
+		<h:form>
+			<h:outputText value="Introduce la categoria:" />
+			<!--<h:selectOneMenu value="#{managedProducto.categoria}" required="true"
+				requiredMessage="Hay que elegir una categoria" id="cat">
+				<f:selectItem itemValue="Automovil" itemLabel="Automovil" />
+				<f:selectItem itemValue="Electronica" itemLabel="Electronica" />
+				<f:selectItem itemValue="Deportes" itemLabel="Deportes" />
+			</h:selectOneMenu>
+			-->
+			<h:selectOneMenu value="#{managedProducto.categoria}">
+			<f:selectItems value="#{managedProducto.array}"></f:selectItems>
+			
+			</h:selectOneMenu>
+			<h:message for="cat" style="color:red" />
+			<br />
+			<br />
+			<h:outputText value="Descripcion del producto" />
+			<h:inputText value="#{managedProducto.descripcion}" required="true"
+				requiredMessage="Introduce la descripcion" id="desc" />
+			<h:message for="desc" style="color:red" />
+			<br />
+			<br />
+			<h:outputText value="Precio del producto" />
+			<h:inputText value="#{managedProducto.precio}" required="true"
+				id="precio" />
+			<h:message for="precio" style="color:red" />
+			<br />
+			<br />
+			<h:commandButton action="#{managedProducto.anadirEJB()}"
+				value="Enviar" />
+			<h:commandButton type="reset" value="Reset" />
+		</h:form>
+
+		<h:outputLink value="usuario.xhtml">Usuario</h:outputLink>
+
+		<h:panelGroup rendered="#{managedProducto.checkAdd()}">
+			<h1>Articulo insertado</h1>
+			<h1>
+				<h:outputText value="#{managedProducto.toString()}" />
+			</h1>
+		</h:panelGroup>
+	</ui:define>
+</ui:composition>
+</html>

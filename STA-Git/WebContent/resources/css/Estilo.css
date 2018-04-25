@@ -1,0 +1,33 @@
+@CHARSET "UTF-8";
+
+
+h1{
+	color: white;
+	background-color: Green;
+	text-align: center;
+}
+
+table{
+	border-collapse: collapse;	
+}
+
+td{
+	text-align: center;
+}
+
+th{
+	background-color:green;
+	color:white;
+}
+
+table,th,td{
+	border: 1px solid green;
+}
+
+tabla {
+	
+	text-align: center;
+	
+}
+
+
