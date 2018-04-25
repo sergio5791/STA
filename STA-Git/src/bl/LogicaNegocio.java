@@ -31,8 +31,7 @@ import pl.anadirREST;
 @DenyAll
 public class LogicaNegocio {
 
-	@PersistenceContext
-	private EntityManager em;
+
 		
 	@PermitAll
 	@Path("lista")

@@ -3,11 +3,13 @@ package pl;
 import java.io.Serializable;
 import java.util.List;
 
+import javax.ejb.EJB;
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Named;
 import javax.ws.rs.client.ClientBuilder;
 import javax.ws.rs.core.MediaType;
 
+import bl.LogicaNegocio;
 import dl.ListaProductos;
 import dl.Producto;
 
@@ -19,6 +21,8 @@ public class ManagedShopList implements Serializable{
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+	@EJB
+	private LogicaNegocio logica;
 	private ListaProductos lista= new ListaProductos();
 	
 	
@@ -43,6 +47,11 @@ public class ManagedShopList implements Serializable{
 		return lista.toString();
 	}
 
+	public List<Producto> devuelveLista (){
+		
+		return(logica.leerXML().getLista());
+		
+	}
 	
 	
 	
