@@ -1,5 +1,7 @@
 package bl;
 
+import java.io.Serializable;
+
 import javax.annotation.security.DenyAll;
 import javax.annotation.security.PermitAll;
 import javax.annotation.security.RolesAllowed;
@@ -28,11 +30,16 @@ import pl.anadirREST;
 
 @Stateless
 @LocalBean
-@DenyAll
-public class LogicaNegocio {
+
+public class LogicaNegocio implements Serializable{
 
 
 		
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	@PermitAll
 	@Path("lista")
 	@GET
@@ -48,7 +55,7 @@ public class LogicaNegocio {
 		return lista;
 	}
 	
-	@RolesAllowed("Administrador")
+	@RolesAllowed("Admin")
 	@Path("anadir")
 	@POST
 	@Consumes({MediaType.APPLICATION_XML,MediaType.APPLICATION_JSON})
@@ -57,8 +64,7 @@ public class LogicaNegocio {
 		EscribirXML escribir=new EscribirXML();
 		//EscribirJSON escribir=new EscribirJSON();
 		escribir.escribir(articulo);
-		//em.persist(articulo);
-		//em.flush();
+
 		
 	}
 	
